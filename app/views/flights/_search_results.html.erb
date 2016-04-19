@@ -1,0 +1,25 @@
+<%=form_tag :bookings, method: 'get' do %>
+<table>
+	<tr>
+		<th>Select</th>
+		<th>Flight From </th>
+		<th>Flight to </th>
+		<th>Passenger</th>
+	</tr>
+	<tr>
+		<td><%@flight.each do |result|%></td>
+		<td><%= radio_button_tag :flight_id, result.id %></td>
+		<td><%=result.flight_from.code%></td>
+		<td><%=result.flight_to.code%></td>
+		<td><%=result.passengers.size %></td>
+		<td><%=result.duration%></td>
+
+		<%end%>
+		<%if params[:radio_button] == 'cinemas'%>
+		<p>HAAE</p>
+		<%end%>
+		</tr>
+		    <%= submit_tag "Select Flight" %>
+		    		    <%= hidden_field_tag :passengers, params[:passengers] %>
+</table>
+<%end%>

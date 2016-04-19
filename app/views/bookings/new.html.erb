@@ -1,0 +1,10 @@
+<%= form_for @booking do |f| %>
+      <%= f.hidden_field :flight_id %> passengers        
+        <%= f.fields_for :passengers do |pas| %>
+<%=pas.label :username%>
+<h1><%=pas.text_field :username%></h1>
+		    <%=pas.label :email%></br>
+<%=pas.text_field :email%></br>
+<%end%>
+		    <%= f.submit "Book" %>
+<%end%>

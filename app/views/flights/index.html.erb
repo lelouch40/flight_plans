@@ -1,0 +1,12 @@
+<%= form_tag :flights, method: 'get' do%>
+  <%= hidden_field_tag :search %>
+    <%= select_tag :from, options_for_select(@airports),  prompt: "From" %>
+        <%= select_tag :to, options_for_select(@airports),  prompt: "To" %>
+            <%= select_tag :passengers, options_for_select(@passengers), prompt: "passengers" %>
+<%= submit_tag "Search" %>
+<%end%>
+<%if @flight.empty? %>
+<h2>EMPTY</h2>
+<%else%>
+  <%=render(:partial=>"search_results") %>
+<%end%>

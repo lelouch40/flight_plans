@@ -1,0 +1,9 @@
+
+<%= "Flight: #{@booking.flight.id}
+  from #{@booking.flight.flight_from.code} to #{@booking.flight.flight_to.code}
+" %><br />
+<%= "Passengers: #{@booking.passengers.count}"%>
+<%@booking.passengers.each do |p|%>
+	<%=p.username%>
+		<%=p.email%>
+<%end%>
